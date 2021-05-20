@@ -37,7 +37,17 @@ class Publication {
   }
 
   latestContent() {
-    console.log(this.id, this.author, this.name, this.content, this.created);
+    console.log(
+      this.id,
+      this.author,
+      this.name,
+      this.content,
+      this.created,
+      this.edited,
+      this.address,
+      this.ISBNnumber,
+      this.score
+    );
   }
 }
 
@@ -61,7 +71,7 @@ class ISBN extends Blogpost {
     super(id, author, name, content, created, edited, address, ISBNnumber);
     this.ISBNnumber = ISBNnumber;
   }
-  print() {
+  display() {
     console.log(this.ISBNnumber);
     return this.latestContent();
   }
@@ -93,7 +103,7 @@ class Score extends ISBN {
     );
     this.score = this.created;
   }
-  print() {
+  show() {
     console.log(this.score);
     return this.latestContent();
   }
@@ -104,16 +114,23 @@ let newContent1 = new Score(
   "Was wenn wir die Welt retten",
   "Sachbuch",
   "May 20, 2021, 02:00:00",
-  "978-3-462-00201-0"
+  "",
+  "",
+  "978-3-462-00201-0",
+  ""
 );
-newContent1.print();
+newContent1.show();
 
 let newContent2 = new Score(
   002,
   "Johann Wolfgang von Goethe",
   "Die Leiden des jungen Werther",
   "Roman",
-  "September 29, 1774; 02:00:00"
+  "September 29, 1774; 02:00:00",
+  "",
+  "",
+  "NO ISBN",
+  ""
 );
 newContent2.print();
 
@@ -122,6 +139,10 @@ let newContent3 = new Score(
   "Jesus Christus",
   "The Holy Bible",
   "Book of the Books",
-  "December 24, 0000; 02:00:00"
+  "December 24, 0000; 02:00:00",
+  "",
+  "",
+  "Need No ISBN",
+  "Need no scoring"
 );
 newContent3.print();
